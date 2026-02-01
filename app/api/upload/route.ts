@@ -26,13 +26,14 @@ export async function POST(request: NextRequest) {
 
     const blob = await put(filename, file, {
       access: 'public',
-      contentType: 'text/html',
+      contentType: 'text/html; charset=utf-8',
+      addRandomSuffix: false,
     })
 
     return NextResponse.json({
       success: true,
       id,
-      url: blob.url,
+      url: `/view/${id}`,
     })
   } catch (error) {
     console.error('Erro no upload:', error)

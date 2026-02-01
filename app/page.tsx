@@ -43,7 +43,7 @@ export default function Home() {
         throw new Error(data.error || 'Erro ao fazer upload')
       }
 
-      setLink(data.url)
+      setLink(`${window.location.origin}${data.url}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao fazer upload')
     } finally {
